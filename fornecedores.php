@@ -41,6 +41,6 @@
             echo "<p><a href='cadastro.php?tipo=fornecedor'>Cadastrar fornecedor</a></p>";
         ?>
        
-
+       <p><a href="index.html">Voltar</a></p>
     </body>
 </html>

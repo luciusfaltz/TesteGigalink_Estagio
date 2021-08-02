@@ -42,9 +42,9 @@
                 
             }
             echo "</table>";
-            echo "<p><a href='cadastro_pedido.php'>Cadastrar novo pedido</a></p>";
+            echo "<p><a href='cadastro_item.php'>Cadastrar novo pedido</a></p>";
         ?>
-       
+       <p><a href="index.html">Voltar</a></p>
 
     </body>
 </html>

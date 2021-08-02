@@ -19,7 +19,6 @@
                 $registro = mysqli_fetch_row($resultado);
                 $id = $registro[0];
                 $nome = $registro[1];
-                $descricao = $registro[2];
 
                 echo "<tr>";
                 echo "<td>$nome<td/><tr/>";
@@ -28,7 +27,7 @@
             echo "</table>";
             echo "<p><a href='cadastro.php?tipo=transportadora'>Cadastrar transportadora</a></p>";
         ?>
-       
+       <p><a href="index.html">Voltar</a></p>
 
     </body>
 </html>

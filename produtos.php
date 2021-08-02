@@ -33,7 +33,7 @@
             echo "</table>";
             echo "<p><a href='cadastro.php?tipo=produto'>Cadastrar produto</a></p>";
         ?>
-       
+       <p><a href="index.html">Voltar</a></p>
 
     </body>
 </html>
