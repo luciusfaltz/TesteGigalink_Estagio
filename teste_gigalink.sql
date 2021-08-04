@@ -19,6 +19,9 @@ CREATE TABLE `email` (
   `id_fornecedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `email` (`id`, `email`, `referencia`, `id_fornecedor`) VALUES
+(1, 'contato@primeinformatica.com', 'Principal', 1);
+
 DROP TABLE IF EXISTS `fornecedor`;
 CREATE TABLE `fornecedor` (
   `id` int(11) NOT NULL,
@@ -29,6 +32,9 @@ CREATE TABLE `fornecedor` (
   `bairro` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `numero` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `fornecedor` (`id`, `nome`, `descricao`, `cidade`, `endereco`, `bairro`, `numero`) VALUES
+(1, 'Prime InformÃ¡tica', 'Loja de informÃ¡tica', 'Nova Friburgo', 'Rua Farinha Filho', 'Centro', 53);
 
 DROP TABLE IF EXISTS `item`;
 CREATE TABLE `item` (
@@ -42,13 +48,16 @@ CREATE TABLE `item` (
 DROP TABLE IF EXISTS `pedido`;
 CREATE TABLE `pedido` (
   `id` int(11) NOT NULL,
-  `datahora` datetime DEFAULT NULL,
+  `datahora` datetime DEFAULT CURRENT_TIMESTAMP,
   `notafiscal` varchar(240) COLLATE utf8_unicode_ci NOT NULL,
   `valorfrete` float NOT NULL,
   `desconto` float NOT NULL,
   `valortotal` float NOT NULL,
   `id_transportadora` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `pedido` (`id`, `datahora`, `notafiscal`, `valorfrete`, `desconto`, `valortotal`, `id_transportadora`) VALUES
+(12, '2021-08-02 15:22:39', '143', 30, 2, 78, 1);
 
 DROP TABLE IF EXISTS `produto`;
 CREATE TABLE `produto` (
@@ -58,20 +67,31 @@ CREATE TABLE `produto` (
   `id_fornecedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `produto` (`id`, `nome`, `descricao`, `id_fornecedor`) VALUES
+(1, 'Cabo fibra Ã³ptica', 'Cabo para realizar conexÃµes', 1),
+(2, 'Cabo coaxial', 'Cabo de conexÃµes via satÃ©lite', 1),
+(3, 'Cabo HDMI', 'HDMI 2.0 4K', 1);
+
 DROP TABLE IF EXISTS `telefone`;
 CREATE TABLE `telefone` (
   `id` int(11) NOT NULL,
-  `ddd` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
-  `telefone` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `ddd` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `telefone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `referencia` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `id_fornecedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `telefone` (`id`, `ddd`, `telefone`, `referencia`, `id_fornecedor`) VALUES
+(1, '(22)', '94321-1244', 'Whatsapp', 1);
 
 DROP TABLE IF EXISTS `transportadora`;
 CREATE TABLE `transportadora` (
   `id` int(11) NOT NULL,
   `nome` varchar(60) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `transportadora` (`id`, `nome`) VALUES
+(1, 'JadLog');
 
 
 ALTER TABLE `email`
@@ -103,25 +123,25 @@ ALTER TABLE `transportadora`
 
 
 ALTER TABLE `email`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `fornecedor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `item`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `pedido`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 ALTER TABLE `telefone`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `transportadora`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 
 ALTER TABLE `email`
