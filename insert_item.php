@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>    
+        <link href="estilo.css" rel="stylesheet">
         <title>Cadastrar pedido</title>
     </head>
     <body>
@@ -29,15 +30,13 @@
                     $c++;
                 }
             }
-            echo $c;
-
             if($c == $qtdProdutos)
             {
-                echo "Pedido cadastrado com sucesso <p><a href='pedidos.php'>Voltar para a lista de pedidos</a></p>";
+                echo "Pedido cadastrado com sucesso. <br><br><p><a href='pedidos.php'><button>Voltar para a lista de pedidos</button></a></p>";
             }
             else
             {
-                echo "Erro ao cadastrar itens do pedido.<p><a href='pedidos.php'>Voltar</a></p>";
+                echo "Erro ao cadastrar itens do pedido.<br><br><p><a href='pedidos.php'><button>Voltar</button></a></p>";
             }
             
         ?>

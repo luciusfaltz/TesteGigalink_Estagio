@@ -1,7 +1,8 @@
 <DOCTYPE html>
 <html>
     <head>
-        <meta charset='UTF-8'>    
+        <meta charset='UTF-8'> 
+        <link href="estilo.css" rel="stylesheet">   
         <title>Cadastrar pedido</title>
     </head>
     <body>
@@ -30,7 +31,7 @@
             }
             else
             {
-                echo "Erro ao cadastrar pedido.<p><a href='pedidos.php'>Voltar</a></p>";
+                echo "Erro ao cadastrar pedido.<p><a href='pedidos.php'><button>Voltar</button></a></p>";
             }
             
         ?>
