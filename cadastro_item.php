@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>    
+        <link href="estilo.css" rel="stylesheet">
         <title>Cadastrar pedido</title>
     </head>
     <body>
@@ -25,6 +26,6 @@
             ?></select><br>
             <h3>Para selecionar mais de 1 produto, segure a tecla CTRL(Windows)/Command(MacOS) enquanto seleciona os produtos.</h3>
             <input type='submit' value='Adicionar ao carrinho'>
-            <p><a href="pedidos.php">Cancelar</a></p>
+            <p><a href="pedidos.php"><button>Cancelar</button></a></p>
     </body>
 </html>

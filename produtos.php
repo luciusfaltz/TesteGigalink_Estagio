@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>    
+        <link href="estilo.css" rel="stylesheet">
         <title>Produtos cadastrados</title>
     </head>
     <body>
@@ -13,9 +14,9 @@
             $linhas = mysqli_num_rows($resultado);
 
             echo "<table><tr>";
-            echo "<th>Nome<th/>";
-            echo "<th>Descrição<th/>";
-            echo "<th>Fornecedor<th/></tr>";
+            echo "<th>Nome</th>";
+            echo "<th>Descrição</th>";
+            echo "<th>Fornecedor</th></tr>";
 
             for ($i=0; $i < $linhas ; $i++) { 
                 $registro = mysqli_fetch_row($resultado);
@@ -25,15 +26,17 @@
                 $fornecedor = $registro[5];
 
                 echo "<tr>";
-                echo "<td>$nome<td/>";
-                echo "<td>$descricao<td/>";
-                echo "<td>$fornecedor<td/><tr/>";
+                echo "<td>$nome</td>";
+                echo "<td>$descricao</td>";
+                echo "<td>$fornecedor</td>";
+                echo "<td><a href='exclusao.php?tipo=produto&id=$id'>Excluir</a></td>";
+                echo "<td><a href='editar.php?tipo=produto&id=$id'>Editar</a></td></tr>";
                 
             }
-            echo "</table>";
-            echo "<p><a href='cadastro.php?tipo=produto'>Cadastrar produto</a></p>";
+            echo "</table><br>";
+            echo "<p><a href='cadastro.php?tipo=produto'><button>Cadastrar produto</button></a></p>";
         ?>
-       <p><a href="index.html">Voltar</a></p>
+       <p><a href="index.html"><button>Voltar</button></a></p>
 
     </body>
 </html>

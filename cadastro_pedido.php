@@ -1,7 +1,8 @@
 <DOCTYPE html>
 <html>
     <head>
-        <meta charset='UTF-8'>    
+        <meta charset='UTF-8'>  
+        <link href="estilo.css" rel="stylesheet">  
         <title>Cadastrar pedido</title>
     </head>
     <body>
@@ -22,19 +23,19 @@
         ?>
         <h1>Cadastrar um novo pedido</h1>
         <form action='insert_pedido.php?<?php echo $query ?>' method='POST'>
-            Produto(s):
+            Produto(s):<br>
             <?php 
                 $tamItens = count($itens);
                 for($i = 0; $i < $tamItens; $i++){
                     $sqlProd = "select nome from produto where id = '$itens[$i]'";
                     $resultProd = mysqli_query($conexao, $sqlProd);
                     $nomeProduto = mysqli_fetch_row($resultProd);
-                    echo"$nomeProduto[0]: Quantidade <input type='number' name='quantidade[]'> Valor <input type='text' name='valor[]'><br>";
+                    echo"$nomeProduto[0]: Quantidade <input type='number' name='quantidade[]'> Valor <input type='text' name='valor[]'><br><br>";
                 }
             
             ?>
-            <br>Nota Fiscal: <input type='text' name='nota'><br>
-            Transportadora:<select name="transportadora">
+            Nota Fiscal<br><input type='text' name='nota'><br><br>
+            Transportadora<br><select name="transportadora">
             <?php 
                 for($i = 0; $i < $linhasTransp; $i++){
                     $registroTransp = mysqli_fetch_row($resulTransp);
@@ -43,14 +44,13 @@
                     print_r($registroTransp);
                     echo "<option value='$idTransp'>$nomeTransp</option>";
                 }
-            ?></select><br>
-            Valor do frete: <input type='text' name='valFrete'><br>
-            Desconto: <input type='text' name='desconto'><br>
-            Valor Total: <input type='text' name='valTotal'><br>
-            <br><br>
+            ?></select><br><br>
+            Valor do frete<br> <input type='text' name='valFrete'><br><br>
+            Desconto<br> <input type='text' name='desconto'><br><br>
+            Valor Total<br> <input type='text' name='valTotal'><br><br>
             <input type='submit' value='Enviar'>
         </form>
-        <p><a href="pedidos.php">Cancelar</a></p>
+        <p><a href="pedidos.php"><button>Cancelar</button></a></p>
        
 
     </body>

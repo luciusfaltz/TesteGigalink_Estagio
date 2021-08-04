@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset='UTF-8'>    
+        <link href="estilo.css" rel="stylesheet">
         <title>Pedidos cadastrados</title>
     </head>
     <body>
@@ -13,13 +14,13 @@
             $linhas = mysqli_num_rows($resultado);
 
             echo "<table><tr>";
-            echo "<th>Número<th/>";
-            echo "<th>Data e Hora<th/>";
-            echo "<th>Nota fiscal<th/>";
-            echo "<th>Valor do frete<th/>";
-            echo "<th>Transportadora<th/>";
-            echo "<th>Desconto<th/>";
-            echo "<th>Valor total<th/></tr>";
+            echo "<th>Número</th>";
+            echo "<th>Data e Hora</th>";
+            echo "<th>Nota fiscal</th>";
+            echo "<th>Valor do frete</th>";
+            echo "<th>Transportadora</th>";
+            echo "<th>Desconto</th>";
+            echo "<th>Valor total</th></tr>";
 
             for ($i=0; $i < $linhas ; $i++) { 
                 $registro = mysqli_fetch_row($resultado);
@@ -29,22 +30,23 @@
                 $frete = $registro[3];
                 $desconto = $registro[4];
                 $valTotal = $registro[5];
-                $transportadora = $registro[7];
+                $transportadora = $registro[8];
 
                 echo "<tr>";
-                echo "<td>$numero<td/>";
-                echo "<td>$dataHora<td/>";
-                echo "<td>$nota<td/>";
-                echo "<td>$frete<td/>";
-                echo "<td>$transportadora<td/>";
-                echo "<td>$desconto<td/>";
-                echo "<td>$valTotal<td/><tr/>";
+                echo "<td>$numero</td>";
+                echo "<td>$dataHora</td>";
+                echo "<td>$nota</td>";
+                echo "<td>$frete</td>";
+                echo "<td>$transportadora</td>";
+                echo "<td>$desconto</td>";
+                echo "<td>$valTotal</td>";
+                echo "<td><a href='exclusao.php?tipo=pedido&id=$numero'>Excluir</a></td></tr>";
                 
             }
-            echo "</table>";
-            echo "<p><a href='cadastro_item.php'>Cadastrar novo pedido</a></p>";
+            echo "</table><br>";
+            echo "<p><a href='cadastro_item.php'><button>Cadastrar novo pedido</button></a></p>";
         ?>
-       <p><a href="index.html">Voltar</a></p>
+       <p><a href="index.html"><button>Voltar</button></a></p>
 
     </body>
 </html>
